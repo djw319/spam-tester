@@ -1,33 +1,25 @@
 /*DJ Walsh
  *Measurements and Analysis Term Project
  *This code collects data from an array of thermocouples to test the temperature distrobution of microwaved spam
+ *The array contains 12 Thermocouples and the Units are in degrees Celcius
  *Initial Commit: 10-08-2021
  */
+
+ /*
+  * Thermocouple Array:
+  * 
+  *   O
+  *   | 01 | 02 | 03 | 04 |
+  *   | 05 | 06 | 07 | 08 |
+  *   | 09 | 10 | 11 | 12 |
+  * 
+  */
 
 //libraries
 #include "max6675.h"
 
 
 //Global Variables
-
-  //Analog Pin Definitions
-    #define PIN_A0   (14)
-    #define PIN_A1   (15)
-    #define PIN_A2   (16)
-    #define PIN_A3   (17)
-    #define PIN_A4   (18)
-    #define PIN_A5   (19)
-    #define PIN_A6   (20)
-    #define PIN_A7   (21)
-    static const uint8_t A0 = PIN_A0;
-    static const uint8_t A1 = PIN_A1;
-    static const uint8_t A2 = PIN_A2;
-    static const uint8_t A3 = PIN_A3;
-    static const uint8_t A4 = PIN_A4;
-    static const uint8_t A5 = PIN_A5;
-    static const uint8_t A6 = PIN_A6;
-    static const uint8_t A7 = PIN_A7;
-
 
   //Pin Setup
     int thermoDO = 4;
@@ -37,17 +29,16 @@
     int SC_TC3 = 8;
     int SC_TC4 = 9;
     int SC_TC5 = 10;
-    int SC_TC6 = 14;
-    int SC_TC7 = 15;
-    int SC_TC8 = 16;
-    int SC_TC9 = 17;
-    int SC_TC10 = 18;
-    int SC_TC11 = 19;
-    int SC_TC12 = 20;
+    int SC_TC6 = A0;
+    int SC_TC7 = A1;
+    int SC_TC8 = A2;
+    int SC_TC9 = A3;
+    int SC_TC10 = A4;
+    int SC_TC11 = A5;
+    int SC_TC12 = A6;
     int LED_PIN = 13;
-    int BUTTON_PIN = 21;
-    
-    
+    int BUTTON_PIN = A7;
+        
   //Time Setup
     unsigned long myTime = 0;
 
@@ -64,25 +55,23 @@
   MAX6675 TC10(thermoCLK, SC_TC10, thermoDO);
   MAX6675 TC11(thermoCLK, SC_TC11, thermoDO);
   MAX6675 TC12(thermoCLK, SC_TC12, thermoDO);
-  
 
   
 void setup() {
 
   //Serial Initialization
-  Serial.begin(115200);
+    Serial.begin(115200);
 
   //Pin Initialization
-  pinMode(LED_PIN, OUTPUT);
-  pinMode(BUTTON_PIN, INPUT);
-
-  digitalWrite(LED_PIN,LOW);
+    pinMode(LED_PIN, OUTPUT);
+    pinMode(BUTTON_PIN, INPUT);
+    digitalWrite(LED_PIN,LOW);
 
 }
 
 void loop() {
 
-  buttonState = digitalRead(BUTTON_PIN);
+  int buttonState = digitalRead(BUTTON_PIN);
   
   if(buttonState==HIGH){
 
@@ -104,7 +93,7 @@ void loop() {
     Serial.print("TC12, ");
     Serial.print("\n");
     
-    for(int x = 0, x<=20, x++){
+    for(int x = 0; x<=20; x++){
 
       //Data Printout
       Serial.print(TC1.readCelsius());
