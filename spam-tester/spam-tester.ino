@@ -37,15 +37,15 @@
     int SC_TC3 = 8;
     int SC_TC4 = 9;
     int SC_TC5 = 10;
-    int SC_TC6 = 11;
-    int SC_TC7 = 12;
-    int SC_TC8 = 14;
-    int SC_TC9 = 15;
-    int SC_TC10 = 16;
-    int SC_TC11 = 17;
-    int SC_TC12 = 18;
+    int SC_TC6 = 14;
+    int SC_TC7 = 15;
+    int SC_TC8 = 16;
+    int SC_TC9 = 17;
+    int SC_TC10 = 18;
+    int SC_TC11 = 19;
+    int SC_TC12 = 20;
     int LED_PIN = 13;
-    int BUTTON_PIN = 19;
+    int BUTTON_PIN = 21;
     
     
   //Time Setup
