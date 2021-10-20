@@ -1,7 +1,7 @@
 /*DJ Walsh
  *Measurements and Analysis Term Project
- *This code collects data from an array of thermocouples to test the temperature distrobution of microwaved spam
- *The array contains 12 Thermocouples and the Units are in degrees Celcius
+ *This code collects data from an array of thermocouples to test the temperature distribution of microwaved spam
+ *The array contains 12 Thermocouples and the Units are in degrees Celsius
  *Initial Commit: 10-08-2021
  */
 
