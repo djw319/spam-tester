@@ -16,15 +16,17 @@
   */
 
 //libraries
-#include "max6675.h"
+#include <max6675.h>
+#include <Wire.h>
+
 
 
 //Global Variables
 
   //Pin Setup
-    int thermoDO = 4;
+    int thermoDO = 5;
     int thermoCLK = 6;
-    int SC_TC1 = 5;
+    int SC_TC1 = 4;
     int SC_TC2 = 7;
     int SC_TC3 = 8;
     int SC_TC4 = 9;
@@ -60,40 +62,41 @@
 void setup() {
 
   //Serial Initialization
-    Serial.begin(115200);
+    Wire.begin();
+    Serial.begin(9600);
 
   //Pin Initialization
     pinMode(LED_PIN, OUTPUT);
     pinMode(BUTTON_PIN, INPUT);
-    digitalWrite(LED_PIN,LOW);
+    digitalWrite(LED_PIN,HIGH);
 
 }
 
 void loop() {
 
-  int buttonState = digitalRead(BUTTON_PIN);
+  //int buttonState = digitalRead(BUTTON_PIN);
   
-  if(buttonState==HIGH){
+  //if(buttonState==HIGH){
 
-    digitalWrite(LED_PIN,HIGH);
-
-    //Write Header Row
-    Serial.print("\n");
-    Serial.print("TC1, ");
-    Serial.print("TC2, ");
-    Serial.print("TC3, ");
-    Serial.print("TC4, ");
-    Serial.print("TC5, ");
-    Serial.print("TC6, ");
-    Serial.print("TC7, ");
-    Serial.print("TC8, ");
-    Serial.print("TC9, ");
-    Serial.print("TC10, ");
-    Serial.print("TC11, ");
-    Serial.print("TC12, ");
-    Serial.print("\n");
+    //digitalWrite(LED_PIN,HIGH);
+//
+//    //Write Header Row
+//    Serial.print("\n");
+//    Serial.print("TC1, ");
+//    Serial.print("TC2, ");
+//    Serial.print("TC3, ");
+//    Serial.print("TC4, ");
+//    Serial.print("TC5, ");
+//    Serial.print("TC6, ");
+//    Serial.print("TC7, ");
+//    Serial.print("TC8, ");
+//    Serial.print("TC9, ");
+//    Serial.print("TC10, ");
+//    Serial.print("TC11, ");
+//    Serial.print("TC12, ");
+//    Serial.print("\n");
     
-    for(int x = 0; x<=20; x++){
+    //for(int x = 0; 0<= 2000000; x++){
 
       //Data Printout
       Serial.print(TC1.readCelsius());
@@ -121,13 +124,13 @@ void loop() {
       Serial.print(TC12.readCelsius());
       Serial.print("\n");
     
-      delay(50);
-    }
+      delay(200);
+    //}
 
-    digitalWrite(LED_PIN,LOW);
-    Serial.print("Finished Recording");
-    Serial.print("\n");
+    //digitalWrite(LED_PIN,LOW);
+    //Serial.print("Finished Recording");
+    //Serial.print("\n");
     
-  }
+  //}
 
 }
