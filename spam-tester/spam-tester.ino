@@ -31,18 +31,14 @@
     int SC_TC3 = 8;
     int SC_TC4 = 9;
     int SC_TC5 = 10;
-    int SC_TC6 = A0;
-    int SC_TC7 = A1;
+    int SC_TC6 = 2;
+    int SC_TC7 = 3;
     int SC_TC8 = A2;
     int SC_TC9 = A3;
-    int SC_TC10 = A4;
-    int SC_TC11 = A5;
-    int SC_TC12 = A6;
-    int LED_PIN = 13;
-    int BUTTON_PIN = A7;
-        
-  //Time Setup
-    unsigned long myTime = 0;
+    int SC_TC10 = A0;
+    int SC_TC11 = A1;
+    int SC_TC12 = 12;
+    
 
 //Thermocouple Initialization
   MAX6675 TC1(thermoCLK, SC_TC1, thermoDO);
@@ -64,11 +60,6 @@ void setup() {
   //Serial Initialization
     Wire.begin();
     Serial.begin(9600);
-
-  //Pin Initialization
-    pinMode(LED_PIN, OUTPUT);
-    pinMode(BUTTON_PIN, INPUT);
-    digitalWrite(LED_PIN,HIGH);
 
 }
 
@@ -124,7 +115,7 @@ void loop() {
       Serial.print(TC12.readCelsius());
       Serial.print("\n");
     
-      delay(200);
+      delay(500);
     //}
 
     //digitalWrite(LED_PIN,LOW);
